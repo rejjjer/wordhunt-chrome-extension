@@ -1,0 +1,15 @@
+{
+  "name": "Wordhunt Chrome Extension",
+  "action": {},
+  "manifest_version": 3,
+  "version": "0.1",
+  "description": "The extension translates selected words with Wordhunt Dictionary",
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["content-script.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
