@@ -1,10 +1,10 @@
 (() => {
-  let isCtrlPressed = false;
+  let isAltCtrlPressed = false;
   let isMouseUp = true;
   let scheduleAfterMouseUp = false;
 
   const findWord = () => {
-    if (!isCtrlPressed) {
+    if (!isAltCtrlPressed) {
       return;
     }
     if (!isMouseUp) {
@@ -57,8 +57,8 @@
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.ctrlKey) {
-      isCtrlPressed = true;
+    if (e.ctrlKey && e.altKey) {
+      isAltCtrlPressed = true;
     }
     if (e.key == "Escape") {
       deleteModal();
@@ -66,8 +66,8 @@
   });
 
   document.addEventListener("keyup", (e) => {
-    if (!e.ctrlKey) {
-      isCtrlPressed = false;
+    if (!e.ctrlKey || !e.altKey) {
+      isAltCtrlPressed = false;
     }
   });
 

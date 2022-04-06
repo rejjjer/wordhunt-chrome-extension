@@ -2,7 +2,7 @@
 
 Google Chrome extension to transalate words with [Wordhunt](https://wooordhunt.ru/) dictionary.
 
-Select the necessary word with Ctrl key pressed, and the extension will show a dialog with the word translation.
+Select the necessary word with Alt+Ctrl keys pressed, and the extension will show a dialog with the word translation.
 
 I created this extension for myself, because [Wordhunt](https://wooordhunt.ru/) is the best English-Russian dictionary IMO.
 
