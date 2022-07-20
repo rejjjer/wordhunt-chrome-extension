@@ -38,7 +38,7 @@
 
     const iframe = document.createElement("iframe");
     iframe.setAttribute("id", "wh-iframe");
-    iframe.setAttribute("src", "https://paragraph77.net/word/" + text);
+    iframe.setAttribute("src", "https://wooordhunt.ru/word/" + text);
 
     content.appendChild(iframe);
     modal.appendChild(content);
