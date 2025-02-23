@@ -1,18 +1,7 @@
 (() => {
-  let isAltCtrlPressed = false;
-  let isMouseUp = true;
-  let scheduleAfterMouseUp = false;
-
   const findWord = () => {
-    if (!isAltCtrlPressed) {
-      return;
-    }
-    if (!isMouseUp) {
-      scheduleAfterMouseUp = true;
-      return;
-    }
     const selection = window.getSelection();
-    if (!selection || selection.rangesCount == 0) {
+    if (!selection || selection.rangeCount == 0) {
       return;
     }
     let text = selection.getRangeAt(0).toString();
@@ -52,33 +41,14 @@
     }
   };
 
-  document.addEventListener("selectionchange", () => {
-    findWord();
-  });
-
   document.addEventListener("keydown", (e) => {
-    if (e.ctrlKey && e.altKey) {
-      isAltCtrlPressed = true;
-    }
     if (e.key == "Escape") {
       deleteModal();
     }
   });
 
-  document.addEventListener("keyup", (e) => {
-    if (!e.ctrlKey || !e.altKey) {
-      isAltCtrlPressed = false;
-    }
-  });
-
-  document.addEventListener("mousedown", () => {
-    isMouseUp = false;
-  });
-
-  document.addEventListener("mouseup", () => {
-    isMouseUp = true;
-    if (scheduleAfterMouseUp) {
-      scheduleAfterMouseUp = false;
+  document.addEventListener("mouseup", (e) => {
+    if (e.getModifierState("Control") && e.getModifierState("Alt")) {
       findWord();
     }
   });
